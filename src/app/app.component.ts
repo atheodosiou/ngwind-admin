@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideBarService } from './shared/services/side-bar.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tailwind-dashboard';
+  constructor(public sidebarService: SideBarService) {}
 }

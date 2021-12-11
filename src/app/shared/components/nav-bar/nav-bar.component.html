@@ -1,4 +1,4 @@
-<nav class="bg-white dark:bg-gray-900 shadow">
+<nav class="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800">
   <div class="w-full px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
@@ -16,20 +16,20 @@
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+            <a href="#" class="bg-gray-900 dark:bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium"
               aria-current="page">Dashboard</a>
 
             <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+              class="text-gray-500 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
 
             <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+              class="text-gray-500 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
 
             <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+              class="text-gray-500 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
 
             <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              class="text-gray-500 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Preports</a>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
 
           <!-- Toggle theme -->
           <button type="button" (click)="themeService.themeToggle()"
-            class="p-1 rounded-full text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-0">
+            class="p-1 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-300 focus:outline-none focus:ring-0">
             <span class="sr-only">Toggle Theme</span>
             <!-- Heroicon name: sun/moon -->
             <svg *ngIf="!isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
@@ -54,7 +54,7 @@
           </button>
 
           <button type="button"
-            class="p-1 ml-3 rounded-full text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-0">
+            class="p-1 ml-3 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-300 focus:outline-none focus:ring-0">
             <span class="sr-only">View notifications</span>
             <!-- Heroicon name: outline/bell -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

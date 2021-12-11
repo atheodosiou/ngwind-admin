@@ -2,13 +2,11 @@
   <app-nav-bar></app-nav-bar>
   <main class="flex flex-row flex-none flex-grow">
     <!--  -->
-    <div *ngIf="(sidebarService.onSidebarToggle | async)?.oppened; $implicit as result;"
-      class="w-72 bg-gray-900 transition ease-linear duration-1000 hidden md:block"
-      >
-      <!-- [ngClass]="{'opacity':result,'ease-in-out duration-500':!result}" -->
+    <div *ngIf="(sidebarService.onSidebarToggle | async)?.oppened as result;"
+      class="w-72 bg-gray-50 border-r border-gray-300 text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 hidden md:block">
       <app-side-bar></app-side-bar>
     </div>
-    <div class="w-full py-6 sm:px-6 lg:px-8 flex-grow">
+    <div class="w-full py-6 sm:px-6 lg:px-8 flex-grow bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
       Content
     </div>
   </main>

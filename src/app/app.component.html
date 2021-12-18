@@ -1,16 +1,22 @@
-<div class="h-screen flex flex-col">
-  <app-nav-bar></app-nav-bar>
-  <main class="flex flex-row flex-none flex-grow">
-    <!--  -->
+
+<div class="h-screen flex flex-col items-stretch max-h-screen overflow-hidden">
+  <div class="flex-none">
+    <app-nav-bar></app-nav-bar>
+  </div>
+  <div class="content flex flex-row max-h-full flex-1 overflow-hidden">
     <div *ngIf="(sidebarService.onSidebarToggle | async)?.oppened as result;"
-      class="w-72 bg-gray-50 border-r border-gray-300 text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 hidden md:block">
+      class="w-72 bg-gray-50 border-r h-full border-gray-300 text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 hidden md:block">
       <app-side-bar></app-side-bar>
     </div>
-    <div class="w-full flex flex-col flex-grow bg-gray-100 dark:bg-gray-900 ">
-      <div class=" flex flex-grow p-4 sm:p-6 lg:p-8 w-full dark:text-gray-300">
-        <i class="fab fa-airbnb"></i> airbnb
-      </div>
-      <app-footer></app-footer>
-    </div>
-  </main>
+    <main class="flex-row min-h-full h-full flex-1 overflow-auto w-full">
+      <div class="bg-gray-500 h-56 mb-2">test</div>
+      <!-- <div class="bg-gray-500 h-56 mb-2">test</div>
+      <div class="bg-gray-500 h-56 mb-2">test</div>
+      <div class="bg-gray-500 h-56 mb-2">test</div>
+      <div class="bg-gray-500 h-56 mb-2">test</div> -->
+    </main>
+  </div>
+  <div class="flex-none">
+    <app-footer></app-footer>
+  </div>
 </div>

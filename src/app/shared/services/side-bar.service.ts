@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class SideBarService {
 
-  private sideBarState: boolean = false;
+  private sideBarState: boolean = true;
   private navBarState: boolean = false;
 
   private onSidebarToggle$: BehaviorSubject<SidebarEvent> =

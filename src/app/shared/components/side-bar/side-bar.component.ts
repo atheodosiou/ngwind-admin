@@ -10,72 +10,45 @@ export class SideBarComponent implements OnInit {
   constructor() {}
   menuItems: MenuItem[] = [
     {
-      label: 'Item 1',
-      icon: 'fab fa-accusoft',
-      expanded: false,
+      label: 'Dashboard',
+      icon: 'fab fa-flipboard',
+      routerLink:['/dashboard'],
       active: false,
     },
     {
-      label: 'Item 2',
-      icon: 'fab fa-blogger-b',
-      expanded: false,
-      active: false,
-      items: [
-        {
-          label: 'Item 2.1',
-          icon: 'fas fa-campground',
-          expanded: false,
-          active: false,
-        },
-        {
-          label: 'Item 2.2',
-          icon: 'fab fa-centercode',
-          expanded: false,
-          active: false,
-        },
-      ],
+      label: 'Empty Page',
+      icon: 'fab fa-html5',
+      routerLink:['/empty-page']
     },
     { label: 'Item 3', icon: 'fas fa-bug', expanded: false, active: false },
     {
       label: 'Item 4',
-      icon: 'fas fa-calendar-check',
-      expanded: false,
-      active: false,
+      icon: 'fas fa-calendar-check'
     },
     {
       label: 'Item 5',
-      icon: 'fab fa-cc-visa',
-      expanded: false,
-      active: false,
-      items: [
-        {
-          label: 'Item 5.1',
-          icon: 'fas fa-chart-bar',
-          expanded: false,
-          active: false,
-          items: [
-            {
-              label: 'Item 5.1.1',
-              icon: 'fas fa-cloud-download-alt',
-              expanded: false,
-              active: false,
-              items: [
-                {
-                  label: 'Item 5.1.1.1',
-                  icon: 'fas fa-cloud-download-alt',
-                  expanded: false,
-                  active: false,
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      icon: 'fab fa-cc-visa'
     },
   ];
 
-  setActive(item: MenuItem, active: boolean): void {
-    item.active = active;
+  setActive(item: MenuItem): void {
+    item.active = !item.active;
+    this.setActiveValue(item, this.menuItems, !item.active);
+  }
+
+  private setActiveValue(
+    itemToExclude: MenuItem,
+    items: MenuItem[],
+    value: boolean
+  ): void {
+    items.forEach((item) => {
+      if (itemToExclude !== item) {
+        item.active = value;
+      }
+      if (item.items?.length) {
+        this.setActiveValue(item, item.items, value);
+      }
+    });
   }
 
   ngOnInit() {}

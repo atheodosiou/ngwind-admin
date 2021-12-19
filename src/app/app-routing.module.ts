@@ -18,6 +18,13 @@ const routes: Routes = [
         (m) => m.EmptyPageModule
       ),
   },
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./features/emptyPage/emptyPage.module').then(
+        (m) => m.EmptyPageModule
+      ),
+  },
   { path: '**', component: NotFoundPageComponent },
 ];
 

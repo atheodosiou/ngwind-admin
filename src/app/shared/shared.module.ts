@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { SideBarComponent } from "./components/side-bar/side-bar.component";
@@ -16,7 +17,8 @@ const components = [
         ...components
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports: [
         ...components

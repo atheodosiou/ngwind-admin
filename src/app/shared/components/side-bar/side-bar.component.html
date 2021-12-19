@@ -5,54 +5,53 @@
       <div class="text-xs uppercase font-semibold">Tailwind CSS</div>
     </div>
   </div>
-  <ul class="flex flex-col flex-grow overflow-auto pr-4">
-    <ng-template *ngFor="let item of menuItems" [ngTemplateOutlet]="itemTemplateRef" [ngTemplateOutletContext]="{$implicit:item}"></ng-template>
+  <ul class="flex flex-col flex-grow overflow-auto p-2">
+    <!-- <ng-template *ngFor="let item of menuItems;let i=index;" [ngTemplateOutlet]="itemTemplateRef"
+      [ngTemplateOutletContext]="{$implicit:item,index:i}"></ng-template> -->
+    <li *ngFor="let item of menuItems;let i=index;" [routerLink]="item.routerLink"
+      routerLinkActive="active-link"
+      class="flex-none flex flex-col py-2 cursor-pointer hover:bg-gray-200 hover:rounded">
+      <div class="flex flex-row items-center hover:text-indigo-500">
+        <div class=" mr-1 flex items-center justify-center w-8 h-full" *ngIf="item?.icon">
+          <i [class]="item?.icon"></i>
+        </div>
+        <div class="flex flex-row w-full">
+          <span class="flex-grow">{{item?.label}}</span>
+        </div>
+      </div>
+    </li>
   </ul>
+  <div
+    class="flex flex-row border-t items-center border-gray-300 dark:border-gray-800 flex-none p-2"
+    >
+    <div class="flex flex-row items-center hover:text-indigo-500 hover:bg-gray-200 w-full cursor-pointer flex-none p-2 hover:rounded"
+    [routerLink]="['/settings']"
+      routerLinkActive="active-link">
+      <i class="fas fa-cog mr-3"></i>
+    <span class="flex-grow">Settings</span>
+    </div>
+  </div>
 </div>
 
-<ng-template #itemTemplateRef let-item>
-  <li class="flex-none flex flex-col py-2 cursor-pointer hover:text-indigo-500 pl-2"
-    [ngClass]="{'bg-gray-200 text-indigo-500':item.active}">
-    <div class="flex flex-row items-center">
-      <div class="mr-1 flex items-center justify-center w-8 h-full" *ngIf="item?.icon">
+<!-- <ng-template #itemTemplateRef let-item let-index="index">
+  <li class="flex-none flex flex-col py-2 cursor-pointer pl-2">
+    <div class="flex flex-row items-center hover:text-indigo-500" [ngClass]="{'text-indigo-500':item?.active}"
+      (click)="setActive(item)">
+      <div class=" mr-1 flex items-center justify-center w-8 h-full" *ngIf="item?.icon">
         <i [class]="item?.icon"></i>
       </div>
       <div class="flex flex-row w-full">
-        <span class="flex-grow" [ngClass]="{'font-semibold':item?.items}">{{item?.label}}</span>
-        <span class="ml-2" *ngIf="item?.items" (click)="item.expanded=!item.expanded">
+        <span class="flex-grow">{{item?.label}}</span>
+        <span class="ml-2" *ngIf="item?.items" (click)="$event.stopPropagation();item.expanded=!item.expanded">
           <i class="fas fa-angle-right" *ngIf="!item?.expanded"></i>
           <i class="fas fa-angle-down" *ngIf="item?.expanded"></i>
         </span>
       </div>
     </div>
     <ul *ngIf="item?.items?.length && item?.expanded" class="pl-2">
-      <ng-template *ngFor="let childItem of item.items" [ngTemplateOutlet]="itemTemplateRef" [ngTemplateOutletContext]="{$implicit:childItem}">
+      <ng-template *ngFor="let childItem of item.items" [ngTemplateOutlet]="itemTemplateRef"
+        [ngTemplateOutletContext]="{$implicit:childItem}">
       </ng-template>
     </ul>
   </li>
-</ng-template>
-
-
-<!-- <ul class="flex flex-col flex-grow overflow-auto py-4">
-  <li class="flex-none flex flex-col px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-indigo-500"
-    *ngFor="let item of menuItems" (click)="setActive(item,true);item?.items?item.expanded=!item?.expanded:false"
-    [ngClass]="{'bg-gray-200 text-indigo-500':item.active}">
-    <div class="flex flex-row">
-      <div class="mr-1 flex items-center justify-center w-8 h-full" *ngIf="item?.icon">
-        <i [class]="item?.icon"></i>
-      </div>
-      <div class="flex flex-row w-full">
-        <span class="flex-grow" [ngClass]="{'font-semibold':item?.items}">{{item?.label}}</span>
-        <span class="ml-2" *ngIf="item?.items">
-          <i class="fas fa-angle-right" *ngIf="!item?.expanded"></i>
-          <i class="fas fa-angle-down" *ngIf="item?.expanded"></i>
-        </span>
-      </div>
-    </div>
-    <ul *ngIf="item.items && item.expanded">
-      <li *ngFor="let childItem of item.items">
-        {{childItem.label}}
-      </li>
-    </ul>
-  </li>
-</ul> -->
+</ng-template> -->

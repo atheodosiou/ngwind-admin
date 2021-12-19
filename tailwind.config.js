@@ -6,8 +6,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-    },
+    borderRadius: ['responsive', 'hover', 'focus']
   },
   plugins: [],
 }

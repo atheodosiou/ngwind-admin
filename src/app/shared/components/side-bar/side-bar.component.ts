@@ -12,22 +12,22 @@ export class SideBarComponent implements OnInit {
     {
       label: 'Dashboard',
       icon: 'fab fa-flipboard',
-      routerLink:['/dashboard'],
+      routerLink: ['/dashboard'],
       active: false,
     },
     {
       label: 'Empty Page',
       icon: 'fab fa-html5',
-      routerLink:['/empty-page']
+      routerLink: ['/empty-page'],
     },
     { label: 'Item 3', icon: 'fas fa-bug', expanded: false, active: false },
     {
       label: 'Item 4',
-      icon: 'fas fa-calendar-check'
+      icon: 'fas fa-calendar-check',
     },
     {
       label: 'Item 5',
-      icon: 'fab fa-cc-visa'
+      icon: 'fab fa-cc-visa',
     },
   ];
 

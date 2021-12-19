@@ -1,17 +1,19 @@
 <div class="h-screen flex flex-col items-stretch max-h-screen overflow-hidden">
   <div class="flex-none">
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [menuLinks]="menuLinks"></app-nav-bar>
   </div>
   <div class="content flex flex-row max-h-full flex-1 overflow-hidden">
     <div *ngIf="(sidebarService.onSidebarToggle | async)?.oppened as result;" [@inOutAnimation]
       class="w-60 bg-gray-50 border-r h-full border-gray-300 text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 hidden md:block">
-      <app-side-bar></app-side-bar>
+      <app-side-bar [menuLinks]="menuLinks"></app-side-bar>
     </div>
-    <main class="flex-row min-h-full h-full flex-1 overflow-auto w-full dark:bg-gray-800 dark:text-gray-300 p-4">
-      <router-outlet></router-outlet>
+    <main class="flex flex-col min-h-full h-full flex-1 overflow-auto w-full dark:bg-gray-800 dark:text-gray-300 custom-scroll  bar">
+      <div class="flex flex-col flex-grow p-4">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="flex-none">
+        <app-footer></app-footer>
+      </div>
     </main>
-  </div>
-  <div class="flex-none">
-    <app-footer></app-footer>
   </div>
 </div>

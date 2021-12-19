@@ -2,6 +2,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { NAVIGATION_LINKS } from './shared/constants/navigation-links.const';
+import { MenuItem } from './shared/models/menu.model';
 import { SideBarService } from './shared/services/side-bar.service';
 import { ThemeEnum, ThemeService } from './shared/services/theme.service';
 
@@ -12,18 +14,20 @@ import { ThemeEnum, ThemeService } from './shared/services/theme.service';
   animations: [
     trigger('inOutAnimation', [
       transition(':enter', [
-        style({ width:'0px',opacity: 0 }),
-        animate('200ms ease-in', style({ width:'240px', opacity: 1 })),
+        style({ width: '0px' }),
+        animate('0.1s ease-in', style({ width: '240px' })),
       ]),
       transition(':leave', [
-        style({ width:'240px', opacity: 1 }),
-        animate('1000ms ease-out', style({ width:'0px', opacity: 0 })),
+        style({ width: '240px' }),
+        animate('0.1s ease-out', style({ width: '0px' })),
       ]),
     ]),
   ],
 })
 export class AppComponent implements OnDestroy {
   private subscription: Subscription;
+  menuLinks: MenuItem[] = NAVIGATION_LINKS;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public sidebarService: SideBarService,

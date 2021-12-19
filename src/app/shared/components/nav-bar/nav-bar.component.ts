@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { MenuItem } from '../../models/menu.model';
 import { SideBarService } from '../../services/side-bar.service';
 import { ThemeEnum, ThemeService } from '../../services/theme.service';
 
@@ -9,6 +10,8 @@ import { ThemeEnum, ThemeService } from '../../services/theme.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit, OnDestroy {
+
+  @Input() menuLinks:MenuItem[]|undefined;
 
   toggleProfileDropdown: boolean = false;
   isDarkMode: boolean = false;

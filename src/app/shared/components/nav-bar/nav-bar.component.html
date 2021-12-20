@@ -105,7 +105,7 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="md:hidden" id="mobile-menu" *ngIf="(sidebarService.onNavbarToggle | async)?.oppened">
+  <div class="md:hidden" id="mobile-menu" *ngIf="(sidebarService.onNavbarToggle | async)?.oppened" [@slideUpdown]>
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <ul class="flex flex-col flex-grow overflow-auto p-2 space-y-2">
         <ng-container [ngTemplateOutlet]="linkTemplateRef" *ngFor="let item of menuLinks"

@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { SLIDE_IN_OUT } from './shared/constants/animations.const';
 import {
   ACCOUNT_LINKS,
   NAVIGATION_LINKS,
@@ -14,18 +15,7 @@ import { ThemeEnum, ThemeService } from './shared/services/theme.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('inOutAnimation', [
-      transition(':enter', [
-        style({ width: '0px' }),
-        animate('0.1s ease-in', style({ width: '256px' })),
-      ]),
-      transition(':leave', [
-        style({ width: '256px' }),
-        animate('0.1s ease-out', style({ width: '0px' })),
-      ]),
-    ]),
-  ],
+  animations: SLIDE_IN_OUT
 })
 export class AppComponent implements OnDestroy {
   private subscription: Subscription;

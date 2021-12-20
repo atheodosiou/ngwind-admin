@@ -1,5 +1,14 @@
+import {
+  transition,
+  style,
+  animate,
+  trigger,
+  state,
+  group,
+} from '@angular/animations';
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { SLIDE_UP_DONW } from '../../constants/animations.const';
 import { MenuItem } from '../../models/menu.model';
 import { SideBarService } from '../../services/side-bar.service';
 import { ThemeEnum, ThemeService } from '../../services/theme.service';
@@ -8,6 +17,7 @@ import { ThemeEnum, ThemeService } from '../../services/theme.service';
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
+  animations: SLIDE_UP_DONW,
 })
 export class NavBarComponent implements OnInit, OnDestroy {
   @Input() menuLinks: MenuItem[] | undefined;

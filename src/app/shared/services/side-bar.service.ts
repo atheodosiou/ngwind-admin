@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class SideBarService {
-
   private sideBarState: boolean = true;
   private navBarState: boolean = false;
 
@@ -13,14 +12,14 @@ export class SideBarService {
   private onNavbarToggle$: BehaviorSubject<SidebarEvent> =
     new BehaviorSubject<SidebarEvent>({ oppened: this.navBarState });
 
-  constructor() { }
+  constructor() {}
 
   public get onSidebarToggle() {
     return this.onSidebarToggle$.asObservable();
   }
 
   public get onNavbarToggle() {
-    return this.onSidebarToggle$.asObservable();
+    return this.onNavbarToggle$.asObservable();
   }
 
   public sidebarToggle(): void {
@@ -30,7 +29,7 @@ export class SideBarService {
 
   public navbarToggle(): void {
     this.navBarState = !this.navBarState;
-    this.onSidebarToggle$.next({ oppened: this.navBarState });
+    this.onNavbarToggle$.next({ oppened: this.navBarState });
   }
 }
 

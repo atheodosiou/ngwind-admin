@@ -7,3 +7,8 @@ html{
         min-height: 100%;
     }
 }
+
+.active-link {
+    @apply bg-gray-300 rounded text-indigo-500 dark:bg-gray-800;
+  }
+  

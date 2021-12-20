@@ -7,19 +7,24 @@ import { ThemeEnum, ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit, OnDestroy {
-
-  @Input() menuLinks:MenuItem[]|undefined;
+  @Input() menuLinks: MenuItem[] | undefined;
+  @Input() accountName: string | undefined;
+  @Input() accountDetails: string | undefined;
+  @Input() accountLinks: MenuItem[] | undefined;
 
   toggleProfileDropdown: boolean = false;
   isDarkMode: boolean = false;
 
   private subscription: Subscription;
 
-  constructor(public sidebarService: SideBarService, public themeService: ThemeService) {
-    this.subscription = this.themeService.onChange.subscribe(event => {
+  constructor(
+    public sidebarService: SideBarService,
+    public themeService: ThemeService
+  ) {
+    this.subscription = this.themeService.onChange.subscribe((event) => {
       switch (event.theme) {
         case ThemeEnum.LIGHT: {
           this.isDarkMode = false;
@@ -33,8 +38,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

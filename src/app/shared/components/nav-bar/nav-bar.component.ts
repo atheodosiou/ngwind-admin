@@ -21,6 +21,7 @@ import { ThemeEnum, ThemeService } from '../../services/theme.service';
 })
 export class NavBarComponent implements OnInit, OnDestroy {
   @Input() menuLinks: MenuItem[] | undefined;
+  @Input() title:string|undefined;
   @Input() accountName: string | undefined;
   @Input() accountDetails: string | undefined;
   @Input() accountLinks: MenuItem[] | undefined;
